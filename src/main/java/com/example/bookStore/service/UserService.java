@@ -23,7 +23,9 @@ public class UserService {
         List<User> users=userRepo.findAll();
         for (User user:users){
             user.setEmail(accountRepo.findEmailByAccountId(user.getId()));
+            userRepo.save(user);
         }
+
         return users;
     }
     public String getCustomerEmail(int accountId){

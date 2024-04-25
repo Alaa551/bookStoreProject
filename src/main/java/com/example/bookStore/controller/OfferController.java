@@ -21,7 +21,7 @@ public class OfferController {
 
 
     @GetMapping("/offers")
-    public String showAllCustomersPage(Model model){
+    public String showOffersPage(Model model){
         List<Offer> offers= offerService.getAllOffers();
         model.addAttribute("offers",offers);
         return "Admin_view/Offers";
