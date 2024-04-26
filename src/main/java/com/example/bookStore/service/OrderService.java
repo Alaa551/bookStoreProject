@@ -16,4 +16,9 @@ public class OrderService {
     public List<Order> getAllOrders(){
       return orderRepo.findAll();
     }
+
+
+    public int numOfOrders(){
+        return getAllOrders().size();
+    }
 }

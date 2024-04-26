@@ -199,7 +199,7 @@
                         <div class="col">
                             <div class="mt-5">
                                 <h4 class="card-title float-left mt-2">Offers</h4>
-                                <a href="add-offers.html" class="btn btn-primary float-right veiwbutton">Add Offer</a>
+                                <a href="/bookStore/showAddOfferPage" class="btn btn-primary float-right veiwbutton">Add Offer</a>
                             </div>
                         </div>
                     </div>
@@ -208,49 +208,7 @@
                     <div class="col-sm-12">
                         <section class="pricing py-5">
                             <div class="container"   style="margin-top: 50px;">
-                                <div id="form-edit" style="display: none;">
-                                    <form>
-                                        <div class="row formtype">
-            
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Name</label>
-                                                    <input class="form-control" type="text" id="Name">
-                                                </div>
-                                            </div>
-            
-            
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Book Type</label>
-                                                    <select class="form-control" id="RoomType">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Author</label>
-                                                    <input class="form-control" type="text" id="Status">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Discount</label>
-                                                    <input class="form-control" type="text" id="discount">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <button type="button" class="btn btn-primary float-left"
-                                        style="margin-right: 10px; padding: 11px;" id="save_room">
-                                        Save
-                                    </button>
-                                    <a href="all-rooms.html" class="btn btn-primary veiwbutton"
-                                        style="padding: 12.5px; font-weight: 10px">Cancel</a>
-            
-                                </div>
+
                                 
                                 <div class="row">
 					<div class="col-sm-12">
@@ -273,20 +231,20 @@
 											</tr>
 										</thead>  <tbody id="tbody">
                                     <tr th:each="offer : ${offers}">
-                                        <td th:text="${offer.book.id}"></td>
+                                        <td th:text="${offer.id}"></td>
                                         <td th:text="${offer.book.bookName}"></td>
                                         <td th:text="${offer.book.category.name}"></td>
                                         <td th:text="${offer.book.author}"></td>
                                         <td th:text="${offer.discount}"></td>
                                         <td th:text="${offer.book.quantity}"></td>
                                         <td th:text="${offer.book.price}"></td>
-                                        <td th:text="${offer.book.price}-${offer.book.quantity}" class="text-center"></td>
+                                        <td th:text="${offer.book.price}-${offer.discount}" class="text-center"></td>
                                         <td>
-                                            <button type="button" class="btn btn-rounded btn-outline-success">Edit
+                                            <button type="button" class="btn btn-rounded btn-outline-success"><a th:href="@{/bookStore/showEditOfferPage/{id}(id=${offer.id})}">Edit</a>
                                             </button>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-rounded btn-outline-danger"> Delete
+                                            <button type="button" class="btn btn-rounded btn-outline-danger" > <a th:href="@{/bookStore/deleteOffer/{id}(id=${offer.id})}">Delete</a>
                                             </button>
                                         </td>
                                     </tr>

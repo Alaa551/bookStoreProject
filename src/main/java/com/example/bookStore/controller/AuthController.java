@@ -25,12 +25,13 @@ public class AuthController {
     @PostMapping("/login")
     public String login(@ModelAttribute Account account,Model model) {
         if(userService.login(account)){
-            return "Admin_view/index";
+            return "redirect:/bookStore/showDashboard";
         }
         model.addAttribute("error",true);
         return "Admin_view/login";
 
     }
+
 
 
 

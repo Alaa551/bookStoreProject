@@ -27,7 +27,7 @@ public class OrderController {
     public String showDashboard(Model model){
         List<Order> orders= orderService.getAllOrders();
         model.addAttribute("orders",orders);
-        return "Admin_view/index";
+        return "redirect:/bookStore/showDashboard";
     }
 
 }

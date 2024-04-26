@@ -17,7 +17,7 @@
 
 <body>
 	<!-- start header -->
-	<div class="main-wrapper">
+	<div class="main-wrapper content">
 		<div class="header">
 			<div class="header-left">
 				<a href="index.html" class="logo"> <img src="/assets/img/bookStore-logo.jpg" width="50" height="70"
@@ -31,104 +31,6 @@
 			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
 			<!-- start  notifications-->
 			<ul class="nav user-menu">
-				<li class="nav-item dropdown noti-dropdown">
-					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-						<i class="fe fe-bell"></i> <span class="badge badge-pill">3</span>
-					</a>
-					<div class="dropdown-menu notifications">
-						<div class="topnav-dropdown-header">
-							<span class="notification-title">Notifications</span>
-							<a href="javascript:void(0)" class="clear-noti"> Clear All </a>
-						</div>
-						<div class="noti-content">
-							<ul class="notification-list">
-								<li class="notification-message">
-									<a href="Rate.html">
-										<div class="media">
-											<span class="avatar avatar-sm">
-												<img class="avatar-img rounded-circle" alt="User Image"
-													src="/assets/img/profiles/avatar-02.jpg" />
-											</span>
-											<div class="media-body">
-												<p class="noti-details">
-													<span class="noti-title">Carlson Tech</span> has
-													rated
-													<span class="noti-title">Our Books Store</span>
-												</p>
-												<p class="noti-time">
-													<span class="notification-time">4 mins ago</span>
-												</p>
-											</div>
-										</div>
-									</a>
-								</li>
-								<li class="notification-message">
-									<a href="Contact.html">
-										<div class="media">
-											<span class="avatar avatar-sm">
-												<img class="avatar-img rounded-circle" alt="User Image"
-													src="/assets/img/profiles/avatar-11.jpg" />
-											</span>
-											<div class="media-body">
-												<p class="noti-details">
-													<span class="noti-title">International Software Inc</span>
-													want to contact with us.
-													<span class="noti-title">Check it</span>
-												</p>
-												<p class="noti-time">
-													<span class="notification-time">6 mins ago</span>
-												</p>
-											</div>
-										</div>
-									</a>
-								</li>
-								<li class="notification-message">
-									<a href="Contact.html">
-										<div class="media">
-											<span class="avatar avatar-sm">
-												<img class="avatar-img rounded-circle" alt="User Image"
-													src="/assets/img/profiles/avatar-17.jpg" />
-											</span>
-											<div class="media-body">
-												<p class="noti-details">
-													<span class="noti-title">John Hendry</span> want to contact with us.
-													<span class="noti-title">Check it</span>
-												</p>
-												<p class="noti-time">
-													<span class="notification-time">8 mins ago</span>
-												</p>
-											</div>
-										</div>
-									</a>
-								</li>
-								<li class="notification-message">
-									<a href="Rate.html">
-										<div class="media">
-											<span class="avatar avatar-sm">
-												<img class="avatar-img rounded-circle" alt="User Image"
-													src="/assets/img/profiles/avatar-13.jpg" />
-											</span>
-											<div class="media-body">
-												<p class="noti-details">
-													<span class="noti-title">Mercury Software Inc</span> has
-													rated
-													<span class="noti-title">Our Books Store</span>
-												</p>
-												<p class="noti-time">
-													<span class="notification-time">12 mins ago</span>
-												</p>
-											</div>
-										</div>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="topnav-dropdown-footer">
-							<a href="#">View all Notifications</a>
-						</div>
-					</div>
-					<!-- end notifications -->
-
 					<!-- start logout dropdown -->
 				<li class="nav-item dropdown has-arrow">
 					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img
@@ -142,22 +44,22 @@
 								<h6>Books Store</h6>
 								<p class="text-muted mb-0">Administrator</p>
 							</div>
-						</div> <a class="dropdown-item" href="login.html">Logout</a>
+						</div> <a class="dropdown-item" href="/bookStore/logout">Logout</a>
 					</div>
 				</li>
 			</ul>
-			<!-- start search -->
-			<div class="top-nav-search">
-				<form>
-					<input onkeyup="searchData(this.value)" type="text" class="form-control"
-						placeholder="Search here" />
-					<button class="btn" type="submit" onclick="getSearchMood(this.id)" id="searchName">
-						<i class="fas fa-search"></i>
-					</button>
-				</form>
-			</div>
-		</div>
-		<!-- end search -->
+<!--			&lt;!&ndash; start search &ndash;&gt;-->
+<!--			<div class="top-nav-search">-->
+<!--				<form>-->
+<!--					<input onkeyup="searchData(this.value)" type="text" class="form-control"-->
+<!--						placeholder="Search here" />-->
+<!--					<button class="btn" type="submit" onclick="getSearchMood(this.id)" id="searchName">-->
+<!--						<i class="fas fa-search"></i>-->
+<!--					</button>-->
+<!--				</form>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--		&lt;!&ndash; end search &ndash;&gt;-->
 
 		<!-- end logout dropdown -->
 
@@ -206,8 +108,8 @@
 							<div class="card-body">
 								<div class="dash-widget-header">
 									<div>
-										<h3 class="card_widget_header">236</h3>
-										<h6 class="text-muted">Total Booking</h6>
+										<h3 class="card_widget_header" th:text="${numOfBooks}"></h3>
+										<h6 class="text-muted" >Total Number of Books</h6>
 									</div>
 									<div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg
 												xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -228,8 +130,8 @@
 							<div class="card-body">
 								<div class="dash-widget-header">
 									<div>
-										<h3 class="card_widget_header">180</h3>
-										<h6 class="text-muted">Available Books</h6>
+										<h3 class="card_widget_header" th:text="${numOfOrders}"></h3>
+										<h6 class="text-muted" >Total number of orders</h6>
 									</div>
 									<div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg
 												xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -248,8 +150,8 @@
 							<div class="card-body">
 								<div class="dash-widget-header">
 									<div>
-										<h3 class="card_widget_header">1538</h3>
-										<h6 class="text-muted">Enquiry</h6>
+										<h3 class="card_widget_header" th:text="${enquiry}"></h3>
+										<h6 class="text-muted" >Total Enquiry</h6>
 									</div>
 									<div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg
 												xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -266,32 +168,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-3 col-sm-6 col-12">
-						<div class="card board1 fill">
-							<div class="card-body">
-								<div class="dash-widget-header">
-									<div>
-										<h3 class="card_widget_header">364</h3>
-										<h6 class="text-muted">Collections</h6>
-									</div>
-									<div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg
-												xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-												viewbox="0 0 24 24" fill="none" stroke="#009688" stroke-width="2"
-												stroke-linecap="round" stroke-linejoin="round"
-												class="feather feather-globe">
-												<circle cx="12" cy="12" r="10"></circle>
-												<line x1="2" y1="12" x2="22" y2="12"></line>
-												<path
-													d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-												</path>
-											</svg></span> </div>
-								</div>
-							</div>
-						</div>
-					</div>
+
 				</div>
 				<!-- start Report section -->
-				<div class="row">
+				<div class="row ">
 					<div class="col-md-12 col-lg-12">
 						<div class="card card-chart">
 							<div class="card-header">
@@ -307,7 +187,7 @@
 				<!-- end Report section -->
 
 				<!-- start table section -->
-				<div class="row">
+				<div class="row " >
 					<div class="col-md-12 d-flex">
 						<div class="card card-table flex-fill">
 							<!-- <div class="card-header">

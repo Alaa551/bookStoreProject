@@ -17,7 +17,7 @@ public class Rate {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "book_id", referencedColumnName = "id")
     private Book book;
 

@@ -24,6 +24,19 @@ public class Cart {
     )
     private ArrayList<Book> books = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Cart() {
     }
 
@@ -32,7 +45,6 @@ public class Cart {
         this.totalPrice = totalPrice;
         this.books = books;
     }
-
 
 
     public int getId() {
@@ -46,6 +58,7 @@ public class Cart {
     public int getNumOfBooks() {
         return numOfBooks;
     }
+
 
     public void setNumOfBooks(int numOfBooks) {
         this.numOfBooks = numOfBooks;

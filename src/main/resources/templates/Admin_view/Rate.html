@@ -184,10 +184,12 @@
 
                         <div class="card-list">
                             <!-- Iterate over the list of cards and generate HTML for each card -->
-                            <div th:each="rate : ${rates}" class="cards">
-<!--                                <div class="image-container">-->
-<!--                                    <img th:src="'data:image/png;base64,' + ${#strings.toString(card.image)}" alt="Book Image">-->
-<!--                                </div>-->
+                            <div th:each="rate,stat : ${rates}" class="cards">
+                                <div class="image-container">
+                                    <img
+                                            style="max-width: 200px; min-height: 240px; border-top-right-radius: 80px;  border-top-left-radius: 80px;"
+                                            th:src="'data:image/png;base64,' + ${encodedImages[__${stat.index}__]}" alt="Book Image">
+                                </div>
                                 <div class="title">
                                     <h2 th:text="${rate.user.name}"></h2>
                                 </div>

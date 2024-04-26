@@ -194,60 +194,13 @@
 					<div class="row align-items-center">
 						<div class="col">
 							<div class="mt-5">
-								<h4 class="card-title float-left mt-2">All Staff</h4> <a href="add-staff.html"
-									class="btn btn-primary float-right veiwbutton">Add Customer</a>
+								<h4 class="card-title float-left mt-2">All Customers</h4>
 							</div>
 
 						</div>
 					</div>
 
 
-					<div id="form-edit" style="display: none;">
-						<form>
-							<div class="row formtype">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Name</label>
-										<input class="form-control" type="text" value="BKG-0001" id="Name">
-									</div>
-								</div>
-
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Email</label>
-										<input class="form-control" type="text" value="BKG-0001" id="Email">
-									</div>
-								</div>
-
-
-								
-
-
-
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Phone Number</label>
-										<input class="form-control" type="text" value="BKG-0001" id="PhoneNumber">
-									</div>
-								</div>
-
-
-							
-
-
-
-
-
-								
-							</div>
-						</form>
-						<button type="button" class="btn btn-primary float-left"
-							style="margin-right: 10px; padding: 11px;" id="submit_add_staff">
-							Update
-						</button>
-						<a href="./all-staff.html" class="btn btn-primary veiwbutton"
-							style="padding: 12.5px; font-weight: 10px">Cancel</a>
-					</div>
 				</div>
 
 
@@ -277,11 +230,11 @@
 											<td th:text="${user.email}"></td>
 											<td th:text="${user.phoneNumber}"></td>
 											<td>
-												<button type="button" class="btn btn-rounded btn-outline-success">Edit
+												<button type="button" class="btn btn-rounded btn-outline-success"> <a th:href="@{/bookStore/editCustomerPage/{id}(id=${user.id})}">Edit</a>
 												</button>
 											</td>
 											<td>
-												<button type="button" class="btn btn-rounded btn-outline-danger"> Delete
+												<button type="button" class="btn btn-rounded btn-outline-danger" > <a th:href="@{/bookStore/deleteCustomer/{id}(id=${user.id})}">Delete</a>
 												</button>
 											</td>
 										</tr>

@@ -31,7 +31,16 @@ public class Order {
     @JoinColumn(name = "shipment_id", referencedColumnName = "id")
     private Shipment shipment;
 
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Invoice invoice;
 
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
 
     @ManyToOne
     @JoinColumn(name = "payment_id", referencedColumnName = "id")

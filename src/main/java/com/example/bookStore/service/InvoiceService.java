@@ -18,4 +18,15 @@ public class InvoiceService {
         return invoiceRepo.findAll();
     }
 
+    public int enquiryOfAllInvoices(){
+        int totalPrice=0;
+        for (Invoice invoice: getAllInvoices()){
+            int orderPrice= invoice.getOrder().getTotalPrice();
+            int shipmentPrice=invoice.getOrder().getShipment().getPrice();
+
+            totalPrice+=(shipmentPrice+orderPrice);
+        }
+        return totalPrice;
+    }
+
 }
